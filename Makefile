@@ -5,13 +5,14 @@ install:
 	docker-compose build laravel.test
 	make up
 	make composer-install
+	docker-compose exec laravel.test chmod -R 777 ./storage/
 	docker-compose exec laravel.test php artisan key:generate
 	docker-compose start mysql
 	make migrate
+	docker-compose exec laravel.test npm i
+	docker-compose exec laravel.test npm run build
 	make test
-reinstall:	
-	make up
-	docker-compose exec laravel.test rm -rf ./vendor
+reinstall:
 	make stop
 	make install
 stop:
@@ -26,4 +27,4 @@ test:
 shell:
 	docker-compose exec laravel.test sh
 composer-install:
-	docker-compose exec laravel.test composer install
+	docker-compose exec laravel.test /bin/bash -c 'composer install'
