@@ -1,5 +1,5 @@
 
-"make", "docker" and "docker-compose" must be installed
+## "make", "docker" and "docker-compose" must be installed
 
 ## Install steps
 
