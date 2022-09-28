@@ -29,11 +29,14 @@ curl -X POST \
   "email": "test@example.com",
   "password": "12345678"
 }
+
 you will get token like this `1|NgUFOuuJhKVIbJmpqvy8A9IZkHzJ2UAXlljaNLgO`
 
 
-then go to and send request with your authorization token and you will get quotes
+then send request to 
 http://0.0.0.0:8888/api/office
+with your authorization token and you will get quotes
+
 
 curl -X GET \
   'http://0.0.0.0:8888/api/office' \
